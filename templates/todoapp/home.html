@@ -9,14 +9,19 @@
   <ul class="list-group">
   {% for task in task_list %}
     <li class="list-group-item">
-      <div style="display: flex">
-        <h3>{{ task.content }}</h3>
+      <div>
         {% if task.status %}
-        <h3 style="color: green; margin-left: 5px">Done</h3>
-        <a href="{% url 'todo:toggle-complete-task' pk=task.id %}" class="btn btn-secondary float-right">Undo</a>
+        <h3 style="color: green; margin-left: 5px">
+          <span style="color: black">{{ task.content }}</span>
+          Done
+          <a style="float: right; margin: 0 10px 0 0;" href="{% url 'todo:toggle-complete-task' pk=task.id %}" class="btn btn-secondary float-right">Undo</a>
+        </h3>
         {% else %}
-        <h3 style="color: red; margin-left: 5px">Not done</h3>
-        <a href="{% url 'todo:toggle-complete-task' pk=task.id %}" class="btn btn-success float-right">Complete</a>
+        <h3 style="color: red; margin-left: 5px">
+          <span style="color: black">{{ task.content }}</span>
+          Not done
+          <a style="float: right; margin: 0 10px 0 0;" href="{% url 'todo:toggle-complete-task' pk=task.id %}" class="btn btn-success float-right">Complete</a>
+        </h3>
         {% endif %}
       </div>
       <div style="display: flex">
