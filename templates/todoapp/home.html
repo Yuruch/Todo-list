@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <div >
+  <div>
     <h1>TODO list</h1>
     <a href="" class="btn btn-primary" >Add task</a>
   </div>
@@ -11,7 +11,7 @@
         <h3>{{ task.content }}</h3>
         {% if task.status %}
         <h3 style="color: green; margin-left: 5px">Done</h3>
-        <a href="" class="btn btn-secondary float-right">Undo</a>
+        <a href="" class="btn btn-success float-right">Undo</a>
         {% else %}
         <h3 style="color: red; margin-left: 5px">Not done</h3>
         <a href="" class="btn btn-secondary float-right">Complete</a>
