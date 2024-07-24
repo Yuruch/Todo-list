@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-  <div>
-    <h1>TODO list</h1>
-    <a href="{% url 'todo:task-create' %}" class="btn btn-primary float-right" >Add task</a>
-  </div>
+  <h1>
+    TODO list
+    <a style="float: right; margin: 10px 10px 0 0;" href="{% url 'todo:task-create' %}" class="btn btn-primary">
+      Add task
+    </a>
+  </h1>
   <ul class="list-group">
   {% for task in task_list %}
     <li class="list-group-item">
@@ -11,10 +13,10 @@
         <h3>{{ task.content }}</h3>
         {% if task.status %}
         <h3 style="color: green; margin-left: 5px">Done</h3>
-        <a href="{% url 'todo:toggle-complete-task' pk=task.id %}" class="btn btn-success float-right">Undo</a>
+        <a href="{% url 'todo:toggle-complete-task' pk=task.id %}" class="btn btn-secondary float-right">Undo</a>
         {% else %}
         <h3 style="color: red; margin-left: 5px">Not done</h3>
-        <a href="{% url 'todo:toggle-complete-task' pk=task.id %}" class="btn btn-secondary float-right">Complete</a>
+        <a href="{% url 'todo:toggle-complete-task' pk=task.id %}" class="btn btn-success float-right">Complete</a>
         {% endif %}
       </div>
       <div style="display: flex">
@@ -32,7 +34,6 @@
           <a style="margin-left: 5px; text-decoration: none" href="{% url 'todo:task-update' pk=task.id %}">Update</a>
           <a style="margin-left: 5px; text-decoration: none" href="{% url 'todo:task-delete' pk=task.id %}">Delete</a>
         </h4>
-
       </div>
     </li>
 	{% endfor %}
