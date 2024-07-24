@@ -11,10 +11,10 @@
         <h3>{{ task.content }}</h3>
         {% if task.status %}
         <h3 style="color: green; margin-left: 5px">Done</h3>
-        <a href="" class="btn btn-success float-right">Undo</a>
+        <a href="{% url 'todo:toggle-complete-task' pk=task.id %}" class="btn btn-success float-right">Undo</a>
         {% else %}
         <h3 style="color: red; margin-left: 5px">Not done</h3>
-        <a href="" class="btn btn-secondary float-right">Complete</a>
+        <a href="{% url 'todo:toggle-complete-task' pk=task.id %}" class="btn btn-secondary float-right">Complete</a>
         {% endif %}
       </div>
       <div style="display: flex">
