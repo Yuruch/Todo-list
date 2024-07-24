@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 from todoapp.models import Task, Tag
 
@@ -20,7 +21,7 @@ class TaskForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        created_at = cleaned_data.get("created_at")
+        created_at = timezone.now()
         deadline = cleaned_data.get("deadline")
         if deadline < created_at:
             raise ValidationError("Deadline can't be before create date")
