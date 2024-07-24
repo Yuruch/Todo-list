@@ -2,7 +2,7 @@
 {% block content %}
   <div>
     <h1>TODO list</h1>
-    <a href="" class="btn btn-primary" >Add task</a>
+    <a href="{% url 'todo:task-create' %}" class="btn btn-primary float-right" >Add task</a>
   </div>
   <ul class="list-group">
   {% for task in task_list %}
@@ -29,8 +29,8 @@
           {% for tag in task.tag.all %}
           	{{ tag.name }}
           {% endfor %}
-          <a style="margin-left: 5px; text-decoration: none" href="">Update</a>
-          <a style="margin-left: 5px; text-decoration: none" href="">Delete</a>
+          <a style="margin-left: 5px; text-decoration: none" href="{% url 'todo:task-update' pk=task.id %}">Update</a>
+          <a style="margin-left: 5px; text-decoration: none" href="{% url 'todo:task-delete' pk=task.id %}">Delete</a>
         </h4>
 
       </div>
